@@ -11,7 +11,7 @@ function create_repo(repo_name){
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
       'Authorization': 'token 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'}
-  }
+  };
   request.post(options, function(error,response,body){});
 }
 
@@ -23,7 +23,7 @@ function get_readme_sha(repo_name){
     headers: {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
-  }
+  };
   request.get(options, function(error,response,body){
     result_json = res.json(JSON.parse(body));
   });
@@ -45,7 +45,7 @@ function edit_readme(repo_name, readme_content){
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
       'Authorization': 'token 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'}
-  }
+  };
   request.put(options, function(error,response,body){});
 }
 
@@ -57,6 +57,6 @@ function delete_repo(repo_name){
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
       'Authorization': 'token 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'}
-  }
+  };
   request.delete(options, function(error,response,body){});
 }
