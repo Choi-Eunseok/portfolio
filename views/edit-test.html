@@ -6,26 +6,12 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/ces.png">
 	</head>
 	<body>
-		<input type="text" class="repo_name" value='abc'/><br/>
-		<input type="text" class="readme_contents" value='abcdefghijklmnopqrstuvwxyz'/><br/>
-		<input type="submit" class="button" name="create" value="create" />
-		<input type="submit" class="button" name="edit" value="edit" />
-		<input type="submit" class="button" name="delete" value="delete" />
+		<input type="text" id="repo_name" value='abc'/><br/>
+		<input type="text" id="readme_contents" value='abcdefghijklmnopqrstuvwxyz'/><br/>
+		<input class="button" value="create" onclick="create_repo(document.getElementById('repo_name').value)" />
+		<input class="button" value="edit" onclick="edit_readme(document.getElementById('repo_name').value, document.getElementById('readme_contents').value)"/>
+		<input class="button" value="delete" onclick="delete_repo(document.getElementById('repo_name').value)"/>
 		<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('.button').click(function(){
-					var clickBtnValue = $(this).val();
-					var repoName = $('.repo_name').val();
-					var readmeContents = $('.readme_contents').val();
-					var ajaxurl = '../public/php/github_api.php',
-						data =  {'action': clickBtnValue,'repo_name': repoName, 'readme_contents': readmeContents};
-					$.post(ajaxurl, data, function (response) {
-						// Response div goes here.
-						//alert("action performed successfully");
-					});
-				});
-			});
-		</script>
+		<script type="text/javascript" src="/javascripts/github_api.js"></script>
 	</body>
 </html>
