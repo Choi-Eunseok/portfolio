@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>개발 목록</title>
+		<link rel="shortcut icon" type="image/x-icon" href="images/ces.png">
+	</head>
+	<body>
+		<input type="text" class="repo_name" value='abc'/><br/>
+		<input type="text" class="readme_contents" value='abcdefghijklmnopqrstuvwxyz'/><br/>
+		<input type="submit" class="button" name="create" value="create" />
+		<input type="submit" class="button" name="edit" value="edit" />
+		<input type="submit" class="button" name="delete" value="delete" />
+		<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.button').click(function(){
+					var clickBtnValue = $(this).val();
+					var repoName = $('.repo_name').val();
+					var readmeContents = $('.readme_contents').val();
+					var ajaxurl = '../public/php/github_api.php',
+						data =  {'action': clickBtnValue,'repo_name': repoName, 'readme_contents': readmeContents};
+					$.post(ajaxurl, data, function (response) {
+						// Response div goes here.
+						//alert("action performed successfully");
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
