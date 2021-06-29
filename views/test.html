@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>테스트</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+		<style>
+			@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+			@import url(//fonts.googleapis.com/earlyaccess/notosansgothic.css);
+			@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR&display=swap');
+			#na{
+    		font-family: 'Hanna', sans-serif;
+			}
+			#go{
+    		font-family: 'Noto Sans KR', sans-serif;
+			}
+			#han{
+			font-family: 'Black Han Sans', sans-serif;
+			}
+			button{
+				width:80vw;
+				height:5vh;
+				position:relative;
+				background:rgba(0,0,0,0.1);
+				border-style:none;
+				font-size:2vh;
+				font-weight:bold;
+			}
+			button:hover{
+				background:rgba(0,0,0,0.75);
+				color:white;
+			}
+			
+		</style>
+	</head>
+	<body data-spy="scroll" data-target="#navbar-example2" style = "position: relative;">
+			
+		
+		<nav id="navbar-example2" class="navbar fixed-top navbar-dark bg-dark justify-content-center mx-auto" style = "width:50vw;border-bottom-left-radius: 3vw;border-bottom-right-radius: 3vw;font-size:1.8vw;">
+  			<a class="navbar-brand" href="#">
+				<img src="/images/ces.png"class="d-inline-block align-top" onclick="movepage()" alt="" style="width:3vw;height:3vw;margin-right: 1vw;">
+			</a>
+  			<ul class="nav nav-pills" id = "p">
+				
+				<li id ="na" class="nav-item dropdown">
+      				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">기타</a>
+      				<div class="dropdown-menu" id="dm">
+			  		</div>
+				</li>
+  			</ul>
+		</nav>
+		<center>
+			<!style="background-image:linear-gradient(90deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.1) 7.5%, rgba(0,0,0,0.1) 92.5%,rgba(0,0,0,0.4) 100%);">
+		<div id ="d" style = "width:80vw;">
+
+		</div>
+	</center>
+		<script type = "text/javascript">
+			function movepage(){
+				location.href = '/';
+			}
+		</script>
+		<script type="text/javascript" src="/javascripts/test.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+</html>
