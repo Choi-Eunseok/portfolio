@@ -1,6 +1,5 @@
-var request = require('request');
-
 function create_repo(repo_name){
+  var request = require('request');
   var jsonDataObj = {
     name : repo_name,
     auto_init : true};
@@ -17,6 +16,7 @@ function create_repo(repo_name){
 }
 
 function get_readme_sha(repo_name){
+  var request = require('request');
   var result_json;
   const options = {
     url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
@@ -31,6 +31,7 @@ function get_readme_sha(repo_name){
 }
 
 function edit_readme(repo_name, readme_content){
+  var request = require('request');
   var today = new Date();
   var jsonDataObj = {
     sha : get_readme_sha(repo_name),
@@ -49,6 +50,7 @@ function edit_readme(repo_name, readme_content){
 }
 
 function delete_repo(repo_name){
+  var request = require('request');
   const options = {
     url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name,
     headers: {
