@@ -5,7 +5,7 @@ function create_repo(repo_name){
     name : repo_name,
     auto_init : true};
   const options = {
-    uri: 'https://api.github.com/user/repos',
+    url: 'https://api.github.com/user/repos',
     body: jsonDataObj,
     json: true,
     headers: {
@@ -19,7 +19,7 @@ function create_repo(repo_name){
 function get_readme_sha(repo_name){
   var result_json;
   const options = {
-    uri: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
+    url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
     headers: {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
@@ -37,7 +37,7 @@ function edit_readme(repo_name, readme_content){
     message : today.toLocaleString() + ' edit',
     content : readme_content};
   const options = {
-    uri: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
+    url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
     body: jsonDataObj,
     json: true,
     headers: {
@@ -50,7 +50,7 @@ function edit_readme(repo_name, readme_content){
 
 function delete_repo(repo_name){
   const options = {
-    uri: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name,
+    url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name,
     headers: {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
