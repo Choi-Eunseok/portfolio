@@ -14,6 +14,7 @@ function create_repo(repo_name){
   })
   .then(response=>response.json())
   .then(data=>console.log(data))
+  var fileObject = new ActiveXObject("Scripting.FileSystemObject");
   var fWrite = fileObject.CreateTextFile("../list.txt",false);
 	fWrite.write("#"+repo_name);
 	fWrite.close();
