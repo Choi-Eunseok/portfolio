@@ -35,9 +35,11 @@ function get_readme_sha(repo_name){
 }
 
 function edit_readme(repo_name, readme_content){
+  var sha = get_readme_sha(repo_name);
+  console.log(sha);
   var today = new Date();
   var jsonDataObj = {
-    sha : get_readme_sha(repo_name),
+    sha : sha,
     message : today.toLocaleString() + ' edit',
     content : readme_content};
   fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
