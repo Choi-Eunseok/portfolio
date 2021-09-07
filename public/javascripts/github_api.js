@@ -35,7 +35,7 @@ function get_readme_sha(repo_name){
 }
 
 function edit_readme(repo_name, readme_content){
-  var sha = get_readme_sha(repo_name);
+  var sha = await get_readme_sha(repo_name);
   console.log(sha);
   var today = new Date();
   var jsonDataObj = {
