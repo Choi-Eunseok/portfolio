@@ -27,11 +27,7 @@ function get_readme_sha(repo_name){
   })
   .then(response=>response.json())
   .then(response=>{
-    console.log(response);
-    if (response.success){
-      console.log(response.sha);
-      sha = response.sha;
-    }
+    sha = response.sha;
   })
   console.log(sha);
   return sha;
