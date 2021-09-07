@@ -44,7 +44,6 @@ async function edit_readme(repo_name, readme_content){
   .then(response=>response.json())
   .then(response=>{
     console.log(response.sha);
-    return response.sha;
     var sha = response.sha;
     console.log(sha);
     var today = new Date();
