@@ -23,7 +23,7 @@ function get_readme(repo_name){
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
-  .then((res) => console.log(response))
+  .then((res) => console.log(res))
   .then((data) => console.log(data))
 }
 
