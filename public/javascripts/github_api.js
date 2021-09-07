@@ -17,14 +17,8 @@ function create_repo(repo_name){
 }
 
 function get_readme(repo_name){
-  fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  })
+  fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',)
   .then((res) => console.log(res))
-  .then((data) => console.log(data))
 }
 
 function edit_readme(repo_name, readme_content){
