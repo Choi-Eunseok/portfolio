@@ -22,7 +22,8 @@ function get_readme(repo_name){
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
   })
-  .then(response=>console.log(response))
+  .then(response=>response.json())
+  .then(data=>console.log(data))
 }
 
 function edit_readme(repo_name, readme_content){
