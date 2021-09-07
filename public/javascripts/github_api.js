@@ -13,25 +13,8 @@ function create_repo(repo_name){
     body: JSON.stringify(jsonDataObj)
   })
   .then(response=>response.json())
-  .then(data=>console.log(data))
+  .then(data=>console.log(repo_name+" created"))
 
-}
-
-async function get_readme_sha(repo_name){
-  var sha = "";
-  fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
-  })
-  .then(response=>response.json())
-  .then(response=>{
-    console.log(response.sha);
-    return response.sha;
-  })
-  //console.log(sha);
-  //return sha;
 }
 
 async function edit_readme(repo_name, readme_content){
@@ -60,7 +43,7 @@ async function edit_readme(repo_name, readme_content){
       body: JSON.stringify(jsonDataObj)
     })
     .then(response=>response.json())
-    .then(data=>console.log(data))
+    .then(data=>console.log(repo_name+" edited"))
   })
 }
 
@@ -72,4 +55,5 @@ function delete_repo(repo_name){
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
       'Authorization': 'token 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'}
   })
+  console.log(repo_name+" deleted");
 }
