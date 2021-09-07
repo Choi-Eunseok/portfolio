@@ -20,11 +20,11 @@ function get_readme(repo_name){
   fetch('https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md',{
     method: 'GET',
     headers: {
-      'Content-Type': 'text/html'
+      'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
-  .then((res) => console.log(res))
-  .then((html) => console.log(html))
+  .then((res) => console.log(res.text))
+  .then((data) => console.log(data))
 }
 
 function edit_readme(repo_name, readme_content){
