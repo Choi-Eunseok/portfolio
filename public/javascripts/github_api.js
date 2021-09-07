@@ -18,10 +18,7 @@ function create_repo(repo_name){
 
 function get_readme(repo_name){
   fetch('https://cdn.jsdelivr.net/gh/Choi-Eunseok/'+repo_name+'@main/README.md',{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'text/plain',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
+    method: 'GET'
   })
   .then((res) => console.log(res))
   .then((data) => console.log(data))
