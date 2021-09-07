@@ -50,7 +50,7 @@ async function edit_readme(repo_name, readme_content){
     var jsonDataObj = {
       sha : sha,
       message : today.toLocaleString() + ' edit',
-      content : readme_content};
+      content : btoa(readme_content)};
     fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
       method: 'PUT',
       headers: {
