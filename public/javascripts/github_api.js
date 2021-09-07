@@ -27,10 +27,11 @@ function get_readme_sha(repo_name){
   })
   .then(response=>response.json())
   .then(response=>{
-    sha = response.sha;
+    console.log(response.sha);
+    return response.sha;
   })
-  console.log(sha);
-  return sha;
+  //console.log(sha);
+  //return sha;
 }
 
 function edit_readme(repo_name, readme_content){
