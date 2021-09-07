@@ -19,6 +19,9 @@ function create_repo(repo_name){
     url: 'https://api.github.com/user/repos',
     body: jsonDataObj,
     json: true,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'token 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'},
     method: "POST",
     success: function (data) {
       $('#output').val(data)
