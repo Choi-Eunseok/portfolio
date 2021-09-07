@@ -17,7 +17,12 @@ function create_repo(repo_name){
 }
 
 function get_readme(repo_name){
-  fetch('https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md')
+  fetch('https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md',{
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
   .then((response) => response.json())
   .then((data) => console.log(data));
 }
