@@ -17,8 +17,9 @@ function create_repo(repo_name){
 }
 
 function get_readme(repo_name){
-  fetch('https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md',)
+  fetch('https://cdn.jsdelivr.net/gh/Choi-Eunseok/'+repo_name+'@main/README.md',)
   .then((res) => console.log(res))
+  .then((data) => console.log(data))
 }
 
 function edit_readme(repo_name, readme_content){
