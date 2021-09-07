@@ -18,7 +18,7 @@ function create_repo(repo_name){
 }
 
 function get_readme_sha(repo_name){
-  var sha;
+  var sha = "";
   fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
     method: 'GET',
     headers: {
