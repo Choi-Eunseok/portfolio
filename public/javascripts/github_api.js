@@ -1,4 +1,7 @@
-
+const url1 = 'https://cdn.jsdelivr.net/gh/Choi-Eunseok/'+repo_name+'@main/README.md';
+const response = await fetch(url1);
+const data = await response.text();
+console.log(data);
 
 function create_repo(repo_name){
   var jsonDataObj = {
@@ -22,10 +25,6 @@ function get_readme(repo_name){
   })
   .then((res) => console.log(res))
   .then((text) => console.log(text))
-  const url1 = 'https://cdn.jsdelivr.net/gh/Choi-Eunseok/'+repo_name+'@main/README.md';
-  const response = await fetch(url1);
-  const data = await response.text();
-  console.log(data);
 }
 
 function edit_readme(repo_name, readme_content){
