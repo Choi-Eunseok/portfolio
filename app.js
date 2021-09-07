@@ -57,9 +57,9 @@ function create_repo(repo_name){
   };
   request.post(options, function(error,response,body){});
 
-  var fWrite = fileObject.OpenTextFile("./public/list.txt", 8);
-	fWrite.write('#'+repo_name);
-	fWrite.close();
+  //var fWrite = fileObject.OpenTextFile("./public/list.txt", 8);
+	//fWrite.write('#'+repo_name);
+	//fWrite.close();
 }
 
 function get_readme_sha(repo_name){
