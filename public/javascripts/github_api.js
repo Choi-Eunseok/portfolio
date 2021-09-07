@@ -26,8 +26,8 @@ function get_readme_sha(repo_name){
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
   })
   .then(response=>response.json())
-  .then(data=>re = data.sha)
-  console.log(data);
+  .then(data=>sha = data.sha)
+  console.log(sha);
   return sha;
 }
 
