@@ -11,6 +11,7 @@
 		<input type="text" id="repo_name" value='abc'/><br/>
 		<input type="text" id="readme_contents" value='abcdefghijklmnopqrstuvwxyz'/><br/>
 		<input type="button" value="create" onclick="create_repo(document.getElementById('repo_name').value);" />
+		<input type="button" value="get" onclick="get_readme(document.getElementById('repo_name').value);" />
 		<input type="button" value="edit" onclick="edit_readme(document.getElementById('repo_name').value, document.getElementById('readme_contents').value);"/>
 		<input type="button" value="delete" onclick="delete_repo(document.getElementById('repo_name').value);"/>
 		<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
