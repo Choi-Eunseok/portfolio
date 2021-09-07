@@ -21,7 +21,7 @@ function get_readme(repo_name){
     method: 'GET'
   })
   .then((res) => console.log(res))
-  .then((data) => console.log(data))
+  .then((text) => console.log(text))
 }
 
 function edit_readme(repo_name, readme_content){
