@@ -1,34 +1,62 @@
-var request = require('request');
+
 
 function create_repo(repo_name){
   var jsonDataObj = {
     name : repo_name,
     auto_init : true};
-  const options = {
+  // const options = {
+  //   url: 'https://api.github.com/user/repos',
+  //   body: jsonDataObj,
+  //   json: true,
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
+  //     'Authorization': 'token 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'}
+  // };
+  // request.post(options, function(error,response,body){});
+
+  $.ajax({
     url: 'https://api.github.com/user/repos',
     body: jsonDataObj,
     json: true,
     headers: {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
-      'Authorization': 'token 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'}
-  };
-  request.post(options, function(error,response,body){});
+      'Authorization': 'token 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'},
+    method: "POST",
+    success: function (data) {
+      $('#output').val(data)
+      console.log(data)
+    }
+  })
 }
 
 function get_readme_sha(repo_name){
-  var result_json;
-  const options = {
-    url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
+  // var result_json;
+  // const options = {
+  //   url: 'https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'
+  //   }
+  // };
+  // request.get(options, function(error,response,body){
+  //   result_json = res.json(JSON.parse(body));
+  // });
+  // return result_json.sha;
+
+  $.ajax({
+    url: "https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md",
+    method: "GET",
     headers: {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'
+    },
+    success: function (data) {
+      $('#output').val(data)
+      console.log(data)
     }
-  };
-  request.get(options, function(error,response,body){
-    result_json = res.json(JSON.parse(body));
-  });
-  return result_json.sha;
+  })
 }
 
 function edit_readme(repo_name, readme_content){
