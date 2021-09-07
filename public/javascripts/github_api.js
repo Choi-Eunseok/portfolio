@@ -18,6 +18,7 @@ function create_repo(repo_name){
 }
 
 function get_readme_sha(repo_name){
+  var sha;
   fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
     method: 'GET',
     headers: {
@@ -25,7 +26,8 @@ function get_readme_sha(repo_name){
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
   })
   .then(response=>response.json())
-  .then(data=>return data.sha)
+  .then(data=>re = data.sha)
+  return sha;
 }
 
 function edit_readme(repo_name, readme_content){
