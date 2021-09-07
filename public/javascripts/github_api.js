@@ -27,7 +27,7 @@ function create_repo(repo_name){
       $('#output').val(data)
       console.log(data)
     }
-  })
+  });
 }
 
 function get_readme_sha(repo_name){
