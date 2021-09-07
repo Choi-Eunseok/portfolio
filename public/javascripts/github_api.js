@@ -34,7 +34,7 @@ async function get_readme_sha(repo_name){
   //return sha;
 }
 
-function edit_readme(repo_name, readme_content){
+async function edit_readme(repo_name, readme_content){
   var sha = await get_readme_sha(repo_name);
   console.log(sha);
   var today = new Date();
