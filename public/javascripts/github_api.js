@@ -22,10 +22,10 @@ async function get_readme(repo_name){
   const data = await response.text();
   console.log(data);
 
-  const url1 = 'https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md';
-  const response = await fetch(url1);
-  const data = await response.text();
-  console.log(data);
+  const url2 = 'https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md';
+  const response2 = await fetch(url2);
+  const data2 = await response2.text();
+  console.log(data2);
 }
 
 function edit_readme(repo_name, readme_content){
