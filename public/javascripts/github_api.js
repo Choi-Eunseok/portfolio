@@ -21,7 +21,7 @@ async function get_readme(repo_name){
   // const response = await fetch(url1);
   // const data = await response.text();
   // console.log(data);
-  fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
+  fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',{
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
