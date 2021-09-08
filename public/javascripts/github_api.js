@@ -16,11 +16,11 @@ function create_repo(repo_name){
   .then(data=>console.log(repo_name+" created"))
 }
 
-async function get_readme(repo_name){
-  const url1 = 'https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md';
-  const response = await fetch(url1);
-  const data = await response.text();
-  console.log(data);
+function get_readme(repo_name){
+  // const url1 = 'https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md';
+  // const response = await fetch(url1);
+  // const data = await response.text();
+  // console.log(data);
 
   fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',{
     method: 'GET',
