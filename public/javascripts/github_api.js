@@ -17,14 +17,13 @@ function create_repo(repo_name){
 }
 
 async function get_readme(repo_name){
-  // const url1 = 'https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md';
-  // const response = await fetch(url1);
-  // const data = await response.text();
-  // console.log(data);
+  const url1 = 'https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md';
+  const response = await fetch(url1);
+  const data = await response.text();
+  console.log(data);
 
   const url1 = 'https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md';
   const response = await fetch(url1);
-  console.log(response);
   const data = await response.text();
   console.log(data);
 }
