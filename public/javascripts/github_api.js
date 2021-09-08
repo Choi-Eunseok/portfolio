@@ -25,7 +25,7 @@ async function get_readme(repo_name){
   fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',{
     method: 'GET',
     headers: {
-      'Access-Control-Allow-Origin' : '*'
+      'sec-fetch-mode': 'no-cors'
     }
   })
   .then(response=>response.json())
