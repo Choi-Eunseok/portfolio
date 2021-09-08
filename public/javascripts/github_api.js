@@ -22,7 +22,7 @@ async function get_readme(repo_name){
   const data = await response.text();
   console.log(data);
 
-  fetch('https://github.com/Choi-Eunseok/'+tepo_name+'/blob/main/README.md',{
+  fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',{
     method: 'GET',
     headers: {
       'Access-Control-Allow-Origin' : '*'
