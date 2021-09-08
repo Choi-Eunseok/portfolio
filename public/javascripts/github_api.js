@@ -17,10 +17,18 @@ function create_repo(repo_name){
 }
 
 async function get_readme(repo_name){
-  const url1 = 'https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md';
-  const response = await fetch(url1);
-  const data = await response.text();
-  console.log(data);
+  // const url1 = 'https://raw.githubusercontent.com/Choi-Eunseok/'+repo_name+'/main/README.md';
+  // const response = await fetch(url1);
+  // const data = await response.text();
+  // console.log(data);
+  fetch('https://api.github.com/repos/Choi-Eunseok/'+repo_name+'/contents/README.md',{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
+  })
+  .then(response=>response.json())
+  .then(data=>console.log(data))
 }
 
 function edit_readme(repo_name, readme_content){
