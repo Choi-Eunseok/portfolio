@@ -21,7 +21,13 @@ function get_readme(repo_name){
   // const response = await fetch(url1);
   // const data = await response.text();
   // console.log(data);
-  fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md')
+  fetch('https://github.com/Choi-Eunseok/'+repo_name+'/blob/main/README.md',{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36',
+      'Access-Control-Allow-Origin' : 'https://choi-es.herokuapp.com/edit-test'}
+  })
   .then(response=>response.json())
   .then(data=>console.log(data))
 }
