@@ -1,5 +1,3 @@
-
-
 function create_repo(repo_name){
   var jsonDataObj = {
     name : repo_name,
@@ -67,4 +65,15 @@ function delete_repo(repo_name){
       'Authorization': 'token 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'}
   })
   console.log(repo_name+" deleted");
+}
+
+function list_project(text_place){
+  fetch('https://api.github.com/user/repos',{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
+  })
+  .then(response=>response.json())
+  .then(data=>text_place.innerText(data))
 }
