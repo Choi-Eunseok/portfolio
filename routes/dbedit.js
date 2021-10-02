@@ -11,11 +11,11 @@ conn.connect();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
-  conn.query(sql, function(err, rows, fields){
-    res.send({list : rows});
-  }
-  //res.send('respond with a resource');
+  //var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
+  // conn.query(sql, function(err, rows, fields){
+  //   res.send({list : rows});
+  // }
+  res.send('respond with a resource');
 });
 
 // app.post('/list/add', function(req, res){ // add.ejs에서 form태그의 post방식으로 데이터를 받는다.
