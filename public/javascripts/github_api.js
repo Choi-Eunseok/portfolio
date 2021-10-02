@@ -69,10 +69,10 @@ function delete_repo(repo_name){
 
 function list_project(text_place){
   fetch('http://choieunseok.dothome.co.kr/list_project.php',{
-    method: 'POST',
+    method: 'GET',
     headers: {
-   	    'Content-Type': 'application/x-www-form-urlencoded',
-	},
+      'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
   })
   .then(response=>response.json())
   .then(data=>text_place.innerText(data))
