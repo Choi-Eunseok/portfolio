@@ -7,6 +7,8 @@ var request = require('request');
 
 var indexRouter = require('./routes/index');
 var projectsListRouter = require('./routes/projectsList');
+var editTestRouter = require('./routes/editTest');
+var dbeditRouter = require("./routes/dbedit");
 
 var app = express();
 
@@ -23,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/projects-list', projectsListRouter);
+app.use('/edit-test', editTestRouter);
+app.use('/dbedit', dbeditRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
