@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const corsOptions = {
-  origin: 'https://choi-es.herokuapp.com/',
+  origin: 'http://localhost:3000',
   credentials: true,
 };
 
