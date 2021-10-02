@@ -21,13 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
