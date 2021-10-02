@@ -1,3 +1,13 @@
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'us-cdbr-east-04.cleardb.com',
+  user     : 'b7734fb5a35b0e',
+  password : 'dce9aa9e',
+  database : 'heroku_7eba0b4eba8973c'
+});
+
+connection.connect();
+
 function create_repo(repo_name){
   var jsonDataObj = {
     name : repo_name,
