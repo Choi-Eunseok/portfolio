@@ -68,7 +68,7 @@ function delete_repo(repo_name){
 }
 
 function list_project(text_place){
-  fetch('https://api.github.com/user/repos',{
+  fetch('http://choieunseok.dothome.co.kr/list_project.php',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
