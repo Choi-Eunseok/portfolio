@@ -91,10 +91,10 @@ app.post('/list/:id/delete', function(req, res){ //form태그를 통하여 post 
     });
 });
 app.get(['/list','/list/:name'], function(req, res){//메인페이지(id값을 통하여 글 내용을 볼 수 있음)
-    var sql = 'SELECT name,readme FROM list'; //전체 글목록 가져오기
+    var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
     conn.query(sql, function(err, topics, fields){
       var name = req.params.name; // request받은 id값
-      if(name){// 글을 선택 했을때.
+      if(id){// 글을 선택 했을때.
         var sql = 'SELECT * FROM list WHERE name=?';
         conn.query(sql, [id], function(err, topic, fields){//[id] : 사용자로부터 받은 id
           if(err) {
@@ -105,7 +105,7 @@ app.get(['/list','/list/:name'], function(req, res){//메인페이지(id값을 �
           }
         });
       } else {// 글을 선택하지 않았을때.(메인페이지만 보여준다.)
-        res.render('view', {topics : topics, topic : undefined })//topic의 데이터가 없어도 topic을 명시해 주지 않는다면 ejs가 오류를 낸다.
+        res.send({topics : topics, topic : undefined })//topic의 데이터가 없어도 topic을 명시해 주지 않는다면 ejs가 오류를 낸다.
       }
     });
 });
