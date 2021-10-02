@@ -7,6 +7,7 @@ var conn = mysql.createConnection({ // mysql과 connection하는 부분
     password : 'dce9aa9e',
     database : 'heroku_7eba0b4eba8973c'
 });
+connection.connect();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -90,24 +91,24 @@ router.get('/', function(req, res, next) {
 //       res.redirect('/list');//데이터를 삭제한 후, 메인페이지로 리다이렉트 해준다.
 //     });
 // });
-// app.get(['/list','/list/:name'], function(req, res){//메인페이지(id값을 통하여 글 내용을 볼 수 있음)
-//     var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
-//     conn.query(sql, function(err, rows, fields){
-//       var name = req.params.name; // request받은 id값
-//       if(name){// 글을 선택 했을때.
-//         var sql = 'SELECT * FROM list WHERE name=?';
-//         conn.query(sql, [name], function(err, topic, fields){//[id] : 사용자로부터 받은 id
-//           if(err) {
-//             console.log(err);
-//             res.status(500).send('Internal Server Error');
-//           } else {
-//             res.render('view', {topics : topics, topic : topic[0] });
-//           }
-//         });
-//       } else {// 글을 선택하지 않았을때.(메인페이지만 보여준다.)
-//         res.send({list : rows})//topic의 데이터가 없어도 topic을 명시해 주지 않는다면 ejs가 오류를 낸다.
-//       }
-//     });
-// });
+app.get(['/list','/list/:name'], function(req, res){//메인페이지(id값을 통하여 글 내용을 볼 수 있음)
+    var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
+    conn.query(sql, function(err, rows, fields){
+      var name = req.params.name; // request받은 id값
+      if(name){// 글을 선택 했을때.
+        var sql = 'SELECT * FROM list WHERE name=?';
+        conn.query(sql, [name], function(err, topic, fields){//[id] : 사용자로부터 받은 id
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            res.render('view', {topics : topics, topic : topic[0] });
+          }
+        });
+      } else {// 글을 선택하지 않았을때.(메인페이지만 보여준다.)
+        res.send({list : rows})//topic의 데이터가 없어도 topic을 명시해 주지 않는다면 ejs가 오류를 낸다.
+      }
+    });
+});
 
 module.exports = router;
