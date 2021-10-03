@@ -23,14 +23,7 @@ router.post('/list/add', function(req, res){
       res.status(500).send('Internal Server Error');
       console.log(err);
     }else{
-      var sql = 'SELECT * FROM list WHERE name=?';
-      conn.query(sql, [name], function(err, row, fields){
-      if(err) {
-        res.status(500).send('Internal Server Error');
-      } else {
-        res.send(row[0]);
-      }
-    });
+      res.send('success');
     }
   });
 });
