@@ -7,7 +7,6 @@ var conn = mysql.createConnection({ // mysql과 connection하는 부분
     password : 'dce9aa9e',
     database : 'heroku_7eba0b4eba8973c'
 });
-conn.connect();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
