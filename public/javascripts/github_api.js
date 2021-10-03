@@ -20,7 +20,6 @@ function create_repo(repo_name){
       readme : ' '
     })
   })
-  .then(response=>response.json())
   .then(data=>console.log(repo_name+" saved"))
 }
 
@@ -80,7 +79,6 @@ function edit_readme(repo_name, readme_content){
       readme : readme_content
     })
   })
-  .then(response=>response.json())
   .then(data=>console.log(repo_name+" saved"))
 }
 
