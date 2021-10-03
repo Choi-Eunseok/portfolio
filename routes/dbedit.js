@@ -37,7 +37,7 @@ router.post('/list/add', function(req, res){
 router.post('/list/edit', function(req, res){
   var name = req.params.name;
   var readme = req.body.readme;
-  var sql = 'UPDATE list SET readme=? WHERE name=?'+mysql.escape(req.params.name);
+  var sql = 'UPDATE list SET readme=? WHERE name='+mysql.escape(req.params.name);
   conn.query(sql, [readme], function(err, result, fields){
     if(err) {
       res.send('Internal Server Error');
