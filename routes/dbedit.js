@@ -96,15 +96,15 @@ router.get(['/list','/list/:name'], function(req, res){//메인페이지(id값�
     conn.query(sql, function(err, rows, fields){
       var name = req.params.name; // request받은 id값
       if(name){// 글을 선택 했을때.
-        // var sql = 'SELECT * FROM list WHERE name=?';
-        // conn.query(sql, [name], function(err, topic, fields){//[id] : 사용자로부터 받은 id
-        //   if(err) {
-        //     console.log(err);
-        //     res.status(500).send('Internal Server Error');
-        //   } else {
-        //     res.render('view', {topics : topics, topic : topic[0] });
-        //   }
-        // });
+        var sql = 'SELECT * FROM list WHERE name=?';
+        conn.query(sql, [name], function(err, row, fields){//[id] : 사용자로부터 받은 id
+          if(err) {
+            console.log(err);
+            res.status(500).send('Internal Server Error');
+          } else {
+            res.send('view', {rows : rows, row : row[0] });
+          }
+        });
       } else {// 글을 선택하지 않았을때.(메인페이지만 보여준다.)
         res.send({list : rows})//topic의 데이터가 없어도 topic을 명시해 주지 않는다면 ejs가 오류를 낸다.
       }
