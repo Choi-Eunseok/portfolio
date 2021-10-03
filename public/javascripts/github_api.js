@@ -15,13 +15,10 @@ function create_repo(repo_name){
 
   fetch('https://choi-es.herokuapp.com/dbedit/list/add',{
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
-    body: {
-      'name' : repo_name,
-      'readme' : ' '
-    }
+    body: new URLSearchParams({
+      name : repo_name,
+      readme : ' '
+    })
   })
   .then(response=>response.json())
   .then(data=>console.log(repo_name+" saved"))
@@ -40,10 +37,7 @@ function get_readme(repo_name){
   //   console.log(atob(content));
   // })
   fetch('https://choi-es.herokuapp.com/dbedit/list/'+repo_name,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
+    method: 'GET'
   })
   .then(response=>response.json())
   .then(response=>{
@@ -81,13 +75,10 @@ function edit_readme(repo_name, readme_content){
 
   fetch('https://choi-es.herokuapp.com/dbedit/list/edit',{
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
-    body: {
-      'name' : repo_name,
-      'readme' : ''
-    }
+    body: new URLSearchParams({
+      name : repo_name,
+      readme : readme_content
+    })
   })
   .then(response=>response.json())
   .then(data=>console.log(repo_name+" saved"))
@@ -105,12 +96,9 @@ function delete_repo(repo_name){
 
   fetch('https://choi-es.herokuapp.com/dbedit/list/delete',{
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
-    body: {
-      'name' : repo_name
-    }
+    body: new URLSearchParams({
+      name : repo_name
+    })
   })
   .then(response=>response.json())
   .then(data=>console.log(repo_name+" deleted"))
