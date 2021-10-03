@@ -35,19 +35,19 @@ router.post('/list/add', function(req, res){
 });
 
 router.post('/list/edit', function(req, res){
-  var name = req.params.name;
+  var name = req.body.name;
   var readme = req.body.readme;
-  var sql = 'UPDATE list SET readme=? WHERE name='+mysql.escape(req.params.name);
-  conn.query(sql, [readme], function(err, rows){
+  var sql = 'UPDATE list SET readme=? WHERE name=?';
+  conn.query(sql, [readme, name], function(err, rows){
     if(err) {
       res.send('Internal Server Error');
     }
-    res.send(rows + name);
+    res.send(rows)
   });
 });
 
 router.post('/list/delete', function(req, res){
-  var name = req.params.name;
+  var name = req.body.name;
   var sql = 'DELETE FROM list WHERE name=?';
   conn.query(sql, [name], function(err, result){
     if(!err) res.send(result);
