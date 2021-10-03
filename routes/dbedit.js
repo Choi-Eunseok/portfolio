@@ -92,7 +92,7 @@ router.get('/', function(req, res, next) {
 // });
 
 router.get(['/list','/list/:name'], function(req, res){//메인페이지(id값을 통하여 글 내용을 볼 수 있음)
-    var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
+    var sql = 'SELECT * FROM list'; //전체 글목록 가져오기
     conn.query(sql, function(err, rows, fields){
       var name = req.params.name; // request받은 id값
       if(name){// 글을 선택 했을때.
@@ -102,7 +102,7 @@ router.get(['/list','/list/:name'], function(req, res){//메인페이지(id값�
             console.log(err);
             res.status(500).send('Internal Server Error');
           } else {
-            res.send({row : row[0]});
+            res.send(row[0]);
           }
         });
       } else {// 글을 선택하지 않았을때.(메인페이지만 보여준다.)
