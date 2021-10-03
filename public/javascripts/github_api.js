@@ -110,7 +110,7 @@ function list_project(text_area){
   .then(response=>{
     response.list.forEach(function(element){
       var original = text_area.innerText;
-      text_area.innerText = original + '\n' + element;
+      text_area.innerText = original + '\n' + JSON.stringify(element.json());
     });
   })
 }
