@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
       throw err;
     }
     response.send(rows);
-  }
+  });
   //res.send('respond with a resource');
 });
 
