@@ -23,8 +23,7 @@ router.post('/list/add', function(req, res){ // add.ejs에서 form태그의 post
           console.log(err); //에러가 있다면, 보안을 위해 콘솔에 err로그를 찍고,
           res.status(500).send('Internal Server Error'); //사용자에게는 err로그를 보여주지 않는다.
         }
-        console.log('The file has been saved!');//데이터가 db에 잘 저장 되었다면, 콘솔에 성공이라 찍는다.
-        res.redirect('/list/'+result.insertId);//새로운 데이터가 insert될때, 자동으로 생기는 id가 있는데, query 함수의 두번째 인자인 result 객체에서 insertId라는 키로 그 값인 id를 찾을 수 있다. 그것을 통하여 새로 생긴 데이터의 화면을 바로 띄워줄 수 있다.
+        res.send(result);
     });
 });
 // app.get(['/list/:id/edit'], function(req, res){// 수정기능
