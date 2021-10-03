@@ -15,9 +15,8 @@ router.get('/', function(req, res, next) {
   conn.query(sql, function(err, rows, fields){
     if (err) {
       console.log('error: ', err);
-      throw err;
     }
-    res.send(rows);
+    else res.send(rows);
   });
   //res.send('respond with a resource');
 });
