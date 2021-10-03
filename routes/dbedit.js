@@ -11,9 +11,13 @@ conn.connect();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  var sql = 'SELECT name FROM list'; //전체 글목록 가져오기
+  var sql = 'SELECT * from list'; //전체 글목록 가져오기
   conn.query(sql, function(err, rows, fields){
-    res.send(rows);
+    if (err) {
+      console.log('error: ', err);
+      throw err;
+    }
+    response.send(rows);
   }
   //res.send('respond with a resource');
 });
