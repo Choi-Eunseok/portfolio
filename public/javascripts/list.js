@@ -1,14 +1,14 @@
-var name = [];
-var readme = [];
-var filtered_sep_title = [];
 fetch('https://choi-es.herokuapp.com/dbedit/list', {
     method: 'GET'
   })
   .then(response => response.json())
   .then(response => {
+		var name_list = [];
+		var readme_list = [];
+		var filtered_sep_title = [];
     response.list.forEach(function(element) {
-      name.push(element.name);
-      readme.push(element.readme);
+      name_list.push(element.name);
+      readme_list.push(element.readme);
     });
     for (var i = 0; i < name.length; i++) {
       filtered_sep_title.push(name[i] + '\n' + readme[i]);
