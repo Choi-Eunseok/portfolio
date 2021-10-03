@@ -12,10 +12,10 @@ var dbeditRouter = require("./routes/dbedit");
 
 var app = express();
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}.`);
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
