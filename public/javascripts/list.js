@@ -1,18 +1,18 @@
 var name = [];
 var readme = [];
-fetch('https://choi-es.herokuapp.com/dbedit/list',{
-	method: 'GET'
-})
-.then(response=>response.json())
-.then(response=>{
-	response.list.forEach(function(element){
-		name.push(element.name);
-		readme.push(element.readme);
-	});
-})
+await fetch('https://choi-es.herokuapp.com/dbedit/list', {
+    method: 'GET'
+  })
+  .then(response => response.json())
+  .then(response => {
+    response.list.forEach(function(element) {
+      name.push(element.name);
+      readme.push(element.readme);
+    });
+  })
 var filtered_sep_title = [];
-for (var i = 0; i < name.length; i++){
-	filtered_sep_title.push(name[i] + '\n' + readme[i]);
+for (var i = 0; i < name.length; i++) {
+  filtered_sep_title.push(name[i] + '\n' + readme[i]);
 }
 console.log(filtered_sep_title);
 
