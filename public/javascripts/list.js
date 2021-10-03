@@ -63,7 +63,7 @@ for (var i in filtered_sep_title) {
   d.appendChild(new_button);
   d.appendChild(new_space);
 }
-}
+
 
 
 
