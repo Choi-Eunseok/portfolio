@@ -38,19 +38,11 @@ router.post('/list/edit', function(req, res){
   var name = req.params.name;
   var readme = req.body.readme;
   var sql = 'UPDATE list SET readme=? WHERE name='+mysql.escape(req.params.name);
-  conn.query(sql, [readme], function(err, result, fields){
+  conn.query(sql, [readme], function(err, rows){
     if(err) {
       res.send('Internal Server Error');
-    } else {
-      var sql = 'SELECT * FROM list WHERE name=?';
-      conn.query(sql, [name], function(err, row, fields){
-        if(err) {
-          res.send('Internal Server Error');
-        } else {
-          res.send(row[0]);
-        }
-      });
-    }
+    } 
+    res.send(rows)
   });
 });
 
