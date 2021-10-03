@@ -15,6 +15,9 @@ function create_repo(repo_name){
 
   fetch('https://choi-es.herokuapp.com/dbedit/list/add',{
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
     body: {
       'name' : repo_name,
       'readme' : ' '
@@ -39,7 +42,7 @@ function get_readme(repo_name){
   fetch('https://choi-es.herokuapp.com/dbedit/list/'+repo_name,{
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'}
   })
   .then(response=>response.json())
@@ -79,7 +82,7 @@ function edit_readme(repo_name, readme_content){
   fetch('https://choi-es.herokuapp.com/dbedit/list/edit',{
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
     body: {
       'name' : repo_name,
@@ -103,7 +106,7 @@ function delete_repo(repo_name){
   fetch('https://choi-es.herokuapp.com/dbedit/list/delete',{
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
     body: {
       'name' : repo_name
