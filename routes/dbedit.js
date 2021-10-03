@@ -7,7 +7,13 @@ var conn = mysql.createConnection({ // mysql과 connection하는 부분
     password : 'dce9aa9e',
     database : 'heroku_7eba0b4eba8973c'
 });
-conn.connect();
+//conn.connect();
+conn.connect(function(err) {              	// The server is either down
+  if (err) {                                     // or restarting (takes a while sometimes).
+    console.log('2. error when connecting to db:', err);
+    setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
+  }                                     	// to avoid a hot loop, and to allow our node script to
+});                                     	// process asynchronous requests in the meantime.
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
