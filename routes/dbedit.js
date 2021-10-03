@@ -34,7 +34,7 @@ router.post('/list/add', function(req, res){
     });
 });
 
-app.post('/list/edit', function(req, res){
+router.post('/list/edit', function(req, res){
     var sql = 'UPDATE list SET readme=? WHERE name=?';
     var readme = req.body.readme;
     var id = req.params.name;
@@ -54,7 +54,7 @@ app.post('/list/edit', function(req, res){
     });
 });
 
-app.post('/list/delete', function(req, res){
+router.post('/list/delete', function(req, res){
     var name = req.params.name;
     var sql = 'DELETE FROM list WHERE name=?';
     conn.query(sql, [name], function(err, result){
