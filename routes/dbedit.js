@@ -102,7 +102,7 @@ router.get(['/list','/list/:name'], function(req, res){//메인페이지(id값�
             console.log(err);
             res.status(500).send('Internal Server Error');
           } else {
-            res.send('view', {rows : rows, row : row[0] });
+            res.send({rows : rows, row : row[0]});
           }
         });
       } else {// 글을 선택하지 않았을때.(메인페이지만 보여준다.)
