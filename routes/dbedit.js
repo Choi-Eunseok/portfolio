@@ -13,20 +13,20 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-// app.post('/list/add', function(req, res){ // add.ejs에서 form태그의 post방식으로 데이터를 받는다.
-//     var name = req.body.name;				//	request 객체의 body객체의 title값.
-//     var readme = req.body.readme;
-//     var sql = 'INSERT INTO list (name, readme) VALUES(?, ?)';// INSERT 쿼리를 통해 데이터를 추가한다. VALUES의 물음표는 아래의 함수의 두번째 인자로 전달할 수 있다.
-//     var params = [name, readme];// 사용자에게 request받은 값들.
-//     conn.query(sql, params, function(err, result, fields){ // db에 query를 날린다. 1번째 인자로 sql문과, 배열 안에 담긴 값들, 그리고 함수를 전달한다.
-//         if(err) {
-//           console.log(err); //에러가 있다면, 보안을 위해 콘솔에 err로그를 찍고,
-//           res.status(500).send('Internal Server Error'); //사용자에게는 err로그를 보여주지 않는다.
-//         }
-//         console.log('The file has been saved!');//데이터가 db에 잘 저장 되었다면, 콘솔에 성공이라 찍는다.
-//         res.redirect('/list/'+result.insertId);//새로운 데이터가 insert될때, 자동으로 생기는 id가 있는데, query 함수의 두번째 인자인 result 객체에서 insertId라는 키로 그 값인 id를 찾을 수 있다. 그것을 통하여 새로 생긴 데이터의 화면을 바로 띄워줄 수 있다.
-//     });
-// });
+router.post('/list/add', function(req, res){ // add.ejs에서 form태그의 post방식으로 데이터를 받는다.
+    var name = req.body.name;				//	request 객체의 body객체의 title값.
+    var readme = req.body.readme;
+    var sql = 'INSERT INTO list (name, readme) VALUES(?, ?)';// INSERT 쿼리를 통해 데이터를 추가한다. VALUES의 물음표는 아래의 함수의 두번째 인자로 전달할 수 있다.
+    var params = [name, readme];// 사용자에게 request받은 값들.
+    conn.query(sql, params, function(err, result, fields){ // db에 query를 날린다. 1번째 인자로 sql문과, 배열 안에 담긴 값들, 그리고 함수를 전달한다.
+        if(err) {
+          console.log(err); //에러가 있다면, 보안을 위해 콘솔에 err로그를 찍고,
+          res.status(500).send('Internal Server Error'); //사용자에게는 err로그를 보여주지 않는다.
+        }
+        console.log('The file has been saved!');//데이터가 db에 잘 저장 되었다면, 콘솔에 성공이라 찍는다.
+        res.redirect('/list/'+result.insertId);//새로운 데이터가 insert될때, 자동으로 생기는 id가 있는데, query 함수의 두번째 인자인 result 객체에서 insertId라는 키로 그 값인 id를 찾을 수 있다. 그것을 통하여 새로 생긴 데이터의 화면을 바로 띄워줄 수 있다.
+    });
+});
 // app.get(['/list/:id/edit'], function(req, res){// 수정기능
 //     var sql = 'SELECT id,title FROM list';	// 일단, 글 목록을 불러온다.(edit페이지에도 글목록은 항상 존재)
 //     conn.query(sql, function(err, topics, fields){
