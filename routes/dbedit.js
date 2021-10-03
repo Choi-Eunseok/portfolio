@@ -41,8 +41,8 @@ router.post('/list/edit', function(req, res){
   conn.query(sql, [readme], function(err, rows){
     if(err) {
       res.send('Internal Server Error');
-    } 
-    res.send(rows)
+    }
+    res.send(rows + name);
   });
 });
 
