@@ -40,12 +40,12 @@ router.post('/list/edit', function(req, res){
     var name = req.params.name;
     conn.query(sql, [readme, name], function(err, result, fields){
       if(err) {
-        res.status(500).send('Internal Server Error');
+        res.send('Internal Server Error');
       } else {
         var sql = 'SELECT * FROM list WHERE name=?';
         conn.query(sql, [name], function(err, row, fields){
           if(err) {
-            res.status(500).send('Internal Server Error');
+            res.send('Internal Server Error');
           } else {
             res.send(row[0]);
           }
