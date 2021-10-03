@@ -20,10 +20,16 @@ router.post('/list/add', function(req, res){ // add.ejs에서 form태그의 post
     var params = [name, readme];// 사용자에게 request받은 값들.
     conn.query(sql, params, function(err, result, fields){ // db에 query를 날린다. 1번째 인자로 sql문과, 배열 안에 담긴 값들, 그리고 함수를 전달한다.
         if(err) {
-          console.log(err); //에러가 있다면, 보안을 위해 콘솔에 err로그를 찍고,
           res.status(500).send('Internal Server Error'); //사용자에게는 err로그를 보여주지 않는다.
         }
-        res.send(result);
+        var sql = 'SELECT * FROM list WHERE name=?';
+        conn.query(sql, [name], function(err, row, fields){//[id] : 사용자로부터 받은 id
+          if(err) {
+            res.status(500).send('Internal Server Error');
+          } else {
+            res.send(row[0]);
+          }
+        });
     });
 });
 // app.get(['/list/:id/edit'], function(req, res){// 수정기능
@@ -98,7 +104,6 @@ router.get(['/list','/list/:name'], function(req, res){//메인페이지(id값�
         var sql = 'SELECT * FROM list WHERE name=?';
         conn.query(sql, [name], function(err, row, fields){//[id] : 사용자로부터 받은 id
           if(err) {
-            console.log(err);
             res.status(500).send('Internal Server Error');
           } else {
             res.send(row[0]);
