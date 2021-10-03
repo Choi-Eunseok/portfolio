@@ -15,12 +15,9 @@ function create_repo(repo_name){
 
   fetch('https://choi-es.herokuapp.com/dbedit/list/add',{
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 YaBrowser/19.9.3.314 Yowser/2.5 Safari/537.36'},
     body: {
       'name' : repo_name,
-      'readme' : ''
+      'readme' : ' '
     }
   })
   .then(response=>response.json())
