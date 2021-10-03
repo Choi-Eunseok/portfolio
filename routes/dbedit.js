@@ -35,50 +35,50 @@ router.post('/list/add', function(req, res){
 });
 
 router.post('/list/edit', function(req, res){
-    var sql = 'UPDATE list SET readme=? WHERE name=?';
-    var readme = req.body.readme;
-    var name = req.params.name;
-    conn.query(sql, [readme, name], function(err, result, fields){
-      if(err) {
-        res.send('Internal Server Error');
-      } else {
-        var sql = 'SELECT * FROM list WHERE name=?';
-        conn.query(sql, [name], function(err, row, fields){
-          if(err) {
-            res.send('Internal Server Error');
-          } else {
-            res.send(row[0]);
-          }
-        });
-      }
-    });
+  var name = req.params.name;
+  var readme = req.body.readme;
+  var sql = 'UPDATE list SET readme=? WHERE name=?';
+  conn.query(sql, [readme, name], function(err, result, fields){
+    if(err) {
+      res.send('Internal Server Error');
+    } else {
+      var sql = 'SELECT * FROM list WHERE name=?';
+      conn.query(sql, [name], function(err, row, fields){
+        if(err) {
+          res.send('Internal Server Error');
+        } else {
+          res.send(row[0]);
+        }
+      });
+    }
+  });
 });
 
 router.post('/list/delete', function(req, res){
-    var name = req.params.name;
-    var sql = 'DELETE FROM list WHERE name=?';
-    conn.query(sql, [name], function(err, result){
-      if(!err) res.send('success');
-    });
+  var name = req.params.name;
+  var sql = 'DELETE FROM list WHERE name=?';
+  conn.query(sql, [name], function(err, result){
+    if(!err) res.send('success');
+  });
 });
 
 router.get(['/list','/list/:name'], function(req, res){
-    var sql = 'SELECT * FROM list';
-    conn.query(sql, function(err, rows, fields){
-      var name = req.params.name;
-      if(name){
-        var sql = 'SELECT * FROM list WHERE name=?';
-        conn.query(sql, [name], function(err, row, fields){
-          if(err) {
-            res.status(500).send('Internal Server Error');
-          } else {
-            res.send(row[0]);
-          }
-        });
-      } else {
-        res.send({list : rows})
-      }
-    });
+  var sql = 'SELECT * FROM list';
+  conn.query(sql, function(err, rows, fields){
+    var name = req.params.name;
+    if(name){
+      var sql = 'SELECT * FROM list WHERE name=?';
+      conn.query(sql, [name], function(err, row, fields){
+        if(err) {
+          res.status(500).send('Internal Server Error');
+        } else {
+          res.send(row[0]);
+        }
+      });
+    } else {
+      res.send({list : rows})
+    }
+  });
 });
 
 module.exports = router;
