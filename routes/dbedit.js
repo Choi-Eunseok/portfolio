@@ -21,6 +21,7 @@ router.post('/list/add', function(req, res){
   conn.query(sql, params, function(err, result, fields){
     if(err) {
       res.status(500).send('Internal Server Error');
+      console.log(err);
     }else{
       var sql = 'SELECT * FROM list WHERE name=?';
       conn.query(sql, [name], function(err, row, fields){
